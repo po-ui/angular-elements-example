@@ -1,16 +1,28 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Injector } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {createCustomElement} from '@angular/elements';
+import { FormsModule } from '@angular/forms';
 
-import { AppComponent } from './app.component';
+import { PoModule } from '@po-ui/ng-components';
+
+import { HeroComponent } from './components/hero/hero.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    HeroComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    PoModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: []
 })
-export class AppModule { }
+export class AppModule {
+  constructor(injector: Injector) {
+    const custom = createCustomElement(HeroComponent, {injector});
+    customElements.define('app-hero', custom);
+  }
+
+  ngDoBootstrap() {}
+}

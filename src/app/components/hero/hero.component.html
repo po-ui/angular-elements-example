@@ -1,0 +1,8 @@
+<h3>Calculator</h3>
+<po-number name="numberOne" p-label="Primeiro Número" p-placeholder="Primeiro Número" [(ngModel)]="numberOne"> </po-number>
+<po-number name="numberTwo" p-label="Segundo Número" p-placeholder="Segundo Número" [(ngModel)]="numberTwo">
+</po-number>
+<po-button p-label="Soma" (p-click)="calcula('soma')"> </po-button>
+<po-button p-label="Subtrai" (p-click)="calcula('subtração')"> </po-button>
+<po-button p-label="Multiplica" (p-click)="calcula('multiplicação')"> </po-button>
+<po-button p-label="Divide" (p-click)="calcula('divisão')"> </po-button>
